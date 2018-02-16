@@ -14,19 +14,18 @@ func main() {
 	fmt.Println(numTeams)
 }
 
-// O(n^2*m)
+
 func acmTeam(topics []string) (int,int) {
 	maxTopics := 0
 	topicCounts := make(map[int]int)
 	for i := 0 ; i < len(topics) ; i++ {
 		for j := i+1 ; j < len(topics) ; j++ {
-			topicSet := make(map[int]bool)
+			curTeamTopics := 0
 			for k := range topics[i] {
 				if topics[i][k] == '1' || topics[j][k] == '1' {
-					topicSet[k] = true
+					curTeamTopics++
 				}
 			}
-			curTeamTopics := len(topicSet)
 			topicCounts[curTeamTopics]++
 			if maxTopics < curTeamTopics {
 				maxTopics = curTeamTopics

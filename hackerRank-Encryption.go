@@ -35,6 +35,11 @@ func encryption(s string) string {
 	}
 	for i := range m {
 		for j := range m[i] {
+			m[i][j] = 255
+		}
+	}
+	for i := range m {
+		for j := range m[i] {
 			if (i*col)+j < len(s) {
 				m[i][j] = s[(i*col)+j]
 			}
@@ -43,6 +48,9 @@ func encryption(s string) string {
 	result := ""
 	for i := range m[0] {
 		for j := range m {
+			if m[j][i] == 255 {
+				continue
+			}
 			char := string(m[j][i])
 			result += char
 		}

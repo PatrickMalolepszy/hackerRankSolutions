@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	fmt.Println("cinomin ")
 	var n, k, q1, q2, ox, oy int
 	fmt.Scan(&n, &k, &q1, &q2)
 	q1--
